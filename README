@@ -1,0 +1,3 @@
+Gli script sono da caricare in Tampermonkey, estensione di Google Chrome
+Non sono stati testati su altri browser
+Ogni script genera una textarea che estrae le informazioni di un prodotto dal produttore secondo il formato scelto da tomsBench
