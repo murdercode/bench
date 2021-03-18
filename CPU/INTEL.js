@@ -13,22 +13,29 @@
 (function() {
     'use strict';
 
+
     var totalO = "";
+    var final ="";
 
     $( "#bladeInside li" ).each(function( index ) {
         var title= $(this).find(".label").text().replace(/ +(?= )/g,'');
         title = $.trim(title);
         var desc = $(this).find(".value").text().replace(/ +(?= )/g,'');
         desc = $.trim(desc);
-        var output = title + "::" + desc + "\n";
+        var output = "{\""+title + "\":\"" + desc + "\"},";
         totalO = totalO + output;
 });
+
+    // Remove last ,
+    totalO = totalO.substring(0, totalO.length - 1);
+    final = "["+totalO+"]";
+
 
     //totalO = totalO.replace(/ +(?= )/g,'');
     //totalO = totalO.replace(/[\r\n]{2,}/g, "\n");
     //totalO = totalO.replace("\n::\n","::");
 
-$(".pageTitle").prepend("<textarea rows=10 cols=100>"+totalO+"");
+$("#sticky-wrapper").prepend("<textarea rows=10 cols=100>"+final+"");
 
     // Your code here...
 })();
